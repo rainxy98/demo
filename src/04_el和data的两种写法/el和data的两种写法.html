@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>el和data的两种写法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!-- 
+        el和data的2种写法:
+            1、el的2中写法：
+                a、new Vue()时配置el属性
+                b、先创建Vue实例，再通过vm.$mount('#root')指定el的值
+            2、data的2中写法：
+                a、对象式
+                b、函数式
+                选择方式：学习组件后，全部用函数式，不然报错
+            3、一个重要原则：由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再指向Vue实例了。
+    -->
+
+    <div id="root">
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+
+        // el的2中写法：
+        // 写法1：
+        // new Vue({
+        //     el: "#root",
+        //     data: {
+        //         name: 'haha'
+        //     }
+        // })
+        // 写法2：
+        // const vm = new Vue({
+        //     data:{}
+        // });
+        // vm.$mount("#root");
+
+        // data的2中写法：
+        // 写法1
+        // new Vue({
+        //     el: "#root",
+        //     data: {
+        //         name: 'haha'
+        //     }
+        // })
+        // 写法2：
+        // new Vue({
+        //     el: "#root",
+        //     data() {
+        //         name: 'haha'
+        //     }
+        // })
+
+        const vm = new Vue({
+
+        });
+        console.log('111 vue:', vm);
+
+    </script>
+    
+</body>
+</html>
