@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>姓名案例_methods语法实现</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <h1>计算属性: {{name}} 学习</h1>
+    姓: <input type="text" v-model="firstName"> <br/><br/>
+    名: <input type="text" v-model="lastName"> <br/><br/>
+    全名: <span>{{fullName()}}</span>
+  </div>
+</body>
+
+</html>
+
+<script>
+  new Vue({
+    el: '#root',
+    data: {
+      name: '姓名案例_methods语法实现',
+      firstName: '哈',
+      lastName: '哈'
+    },
+    methods: {
+      fullName() {
+        return this.firstName + '-' + this.lastName;
+      }
+    }
+  })
+</script>
