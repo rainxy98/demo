@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>基本使用</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    {{name}}
+    <br> <br>
+    <school></school>
+    <br>
+    <student></student>
+  </div>
+</body>
+
+</html>
+
+<script>
+  Vue.config.productionTip = false;
+  const school = {
+    name: 'school',
+    template: `
+      <div>
+        学校名称:{{schoolName}} <br>
+        学校地址:{{address}}
+      </div>
+    `,
+    data() {
+      return {
+        schoolName: '清华',
+        address: '北京'
+      }
+    }
+  };
+
+  const student = {
+    name: 'student',
+    template: `
+      <div>
+        学校姓名:{{studentName}}<br>
+        学校年龄:{{age}}
+      </div>
+    `,
+    data() {
+      return {
+        studentName: '哈哈',
+        age: 18
+      }
+    }
+  };
+
+  new Vue({
+    el: '#root',
+    data: {
+      name: '非单文件基本使用'
+    },
+    components: {
+      school,
+      student
+    }
+  })
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>组件嵌套</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <app></app>
+  </div>
+</body>
+
+</html>
+
+<script>
+  Vue.config.productionTip = false;
+
+  const student = {
+    name: 'student',
+    template: `
+      <div>
+        <h3>学校姓名:{{studentName}}</h3>
+        <h3>学校年龄:{{age}}</h3>
+      </div>
+    `,
+    data() {
+      return {
+        studentName: '哈哈',
+        age: 18
+      }
+    }
+  };
+  
+  const school = {
+    name: 'school',
+    template: `
+      <div>
+        <h3>学校名称:{{schoolName}}</h3>
+        <h3>学校地址:{{address}}</h3>
+        <student></student>
+      </div>
+    `,
+    data() {
+      return {
+        schoolName: '清华',
+        address: '北京'
+      }
+    },
+    components: {
+      student,
+    }
+  };
+
+  const app = Vue.extend({
+    template: `
+      <school></school>
+    `,
+    components: {
+      school,
+    }
+  })
+
+  new Vue({
+    el: '#root',
+    components: {
+      app
+    }
+  })
+</script>
